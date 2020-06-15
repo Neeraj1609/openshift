@@ -8,7 +8,7 @@ ENV ZK_USER=zookeeper \
     ZK_DIST=zookeeper-3.4.11
 
 COPY fix-permissions /usr/local/bin
-COPY ./etc-pki-entitlement /etc/pki/entitlement
+COPY ./4727484771882358066-key.pem /etc/pki/entitlement/
 COPY ./rhsm.conf /etc/rhsm/rhsm-conf
 COPY ./redhat-uep.pem /etc/rhsm/ca/rhsm-ca
 
