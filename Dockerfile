@@ -16,8 +16,11 @@ COPY ./redhat-uep.pem /etc/rhsm/ca/rhsm-ca
 RUN subscription-manager repos --enable="rhel-7-server-rpms" \
     --enable="rhel-7-server-extras-rpms" \
     --enable="rhel-7-server-ose-3.11-rpms" \
-    --enable="rhel-7-server-ansible-2.9-rpms"\
-	INSTALL_PKGS="gettext tar zip unzip hostname nmap-ncat java-1.8.0-openjdk" && \
+    --enable="rhel-7-server-ansible-2.9-rpms" &&\
+
+RUN yum-config-manager --enable rhel-7-server-eus-rpms	
+	
+RUN	INSTALL_PKGS="gettext tar zip unzip hostname nmap-ncat java-1.8.0-openjdk" && \
     yum install -y $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all  && \
