@@ -8,6 +8,8 @@ ENV ZK_USER=zookeeper \
     ZK_DIST=zookeeper-3.4.11
 
 COPY fix-permissions /usr/local/bin
+COPY /etc/rhsm/rhsm-conf /etc/rhsm
+COPY /etc/rhsm/ca/rhsm-ca /etc/rhsm/ca
 
 RUN INSTALL_PKGS="gettext tar zip unzip hostname nmap-ncat java-1.8.0-openjdk" && \
     yum install -y $INSTALL_PKGS && \
